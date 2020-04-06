@@ -1,0 +1,7 @@
+server:
+  port: 9095
+  servlet.context-path : /sk
+
+spring:
+  application:
+    name: spring-boot2-docker
