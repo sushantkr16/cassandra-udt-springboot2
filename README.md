@@ -22,3 +22,6 @@ Rest service :
 * To Run and validate the service:
 
   docker run -p 9095:9095 spring-boot2-docker
+  
+  
+  TAGS : ksushant, sushant, spring boot 2, docker
