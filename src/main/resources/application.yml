@@ -1,7 +1,25 @@
 server:
-  port: 9095
+  port: 9096
   servlet.context-path : /sk
 
 spring:
   application:
-    name: spring-boot2-docker
+    name: spring-boot2-prometheus
+
+endpoints:
+  prometheus:
+    enabled: true
+
+management:
+  health.cassandra.enabled: false
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  endpoints:
+    prometheus:
+      enabled: true
+    web:
+      exposure:
+        include: "*"
+    metrics.enabled: true
