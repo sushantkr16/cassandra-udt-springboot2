@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/spring-boot2/prometheus")
-public class PrometheusResource {
+@RequestMapping("/spring-boot2/docker")
+public class DockerResource {
 
     @GetMapping
-    public String getMetricsFromPrometheus () {
-        return "Spring boot 2 application with Prometheus.";
+    public String dockerizeSpringBoot2Application () {
+        return "Spring boot 2 application dockerized.";
 
     }
 }

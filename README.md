@@ -1,44 +1,27 @@
 # Getting Started
-This is a sample project which shows how to make prometheus working with spring boot 2 application
+This is a sample project for Dockerizing a Spring Boot Application. It has a basic docker file 
+and a rest api. It can be validated by doing below steps 
  
- * Make sure the application yml file has below config details.
- * Start the application and hit the below URL.
-
-### Application configs
-
-management:
-  health.cassandra.enabled: false
-  metrics:
-    export:
-      prometheus:
-        enabled: true
-  endpoints:
-    prometheus:
-      enabled: true
-    web:
-      exposure:
-        include: "*"
-    metrics.enabled: true
+ * docker build 
+ * docker run (This will bring tomcat up)
+ * hitting the rest API 
 
 ### API reference
 
 Rest service : 
 
 * Http Method : GET
-* URL : http://localhost:9095/sk/spring-boot2/prometheus
+* URL : http://localhost:9095/sk/spring-boot2/docker
 
-### Adding Micrometer Prometheus Registry to your Spring Boot application
+### Docker commands
 
-* Spring boot 2 uses Micrometer, an application metrics facade to integrate actuator metrics with 
-  external monitoring systems. It supports several monitoring systems like Netflix Atlas, AWS Cloudwatch, Prometheus etc.
+* To build (don't forget the dot at the last of the command)
 
-### API to get the metrics (which prometheus uses)
+   docker build -t spring-boot2-docker .
 
-* Http Method : GET
-* URL : http://localhost:9096/sk/actuator/prometheus
+* To Run and validate the service:
 
-### Integrate with Prometheus and Grafana
-
-
+  docker run -p 9095:9095 spring-boot2-docker
+  
   
   TAGS : ksushant, sushant, spring boot 2, docker
