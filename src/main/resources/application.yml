@@ -1,10 +1,33 @@
 server:
-  port: 9096
+  port: 9090
   servlet.context-path : /sk
 
 spring:
   application:
-    name: spring-boot2-docker
+    name: cassandra-udt-springboot2
+
+spring.data.cassandra:
+  contact-points: localhost
+  port: 9042
+  keyspace-name: cassandra_udt
+  ttl: 86400 # 1 day
+  ssl: false
+  consistency-level: LOCAL_QUORUM
+  connectTimeout: 100
+  readTimeout: 1000
+  pooling:
+    heartbeatIntervalSeconds: 300 # 5 mins
+    poolTimeoutMillis: 10000 # 2.7 hours
+    idleTimeoutSeconds: 60000 # 16.6 hours
+    healthCheckInterval: 300 # 5 mins
+    local:
+      coreConnectionsPerHost: 1
+      maxConnectionsPerHost: 8
+      maxSimultaneousRequests: 1024
+    remote:
+      coreConnectionsPerHost: 1
+      maxConnectionsPerHost: 8
+      maxSimultaneousRequests: 256
 
 endpoints:
   prometheus:

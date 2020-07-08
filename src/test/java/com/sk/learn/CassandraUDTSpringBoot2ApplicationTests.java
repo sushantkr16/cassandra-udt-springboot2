@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringBoot2DockerApplicationTests {
+class CassandraUDTSpringBoot2ApplicationTests {
 
-	@Test
+	//@Test
 	void contextLoads() {
 	}
 

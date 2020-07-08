@@ -26,10 +26,15 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation ("org.springframework.data:spring-data-cassandra") {
+		exclude group: 'com.datastax.cassandra', module: 'cassandra-driver-core'
+	}
+	compile group: 'com.datastax.dse', name: 'dse-java-driver-core', version: '1.8.1'
+
 	implementation ('io.micrometer:micrometer-registry-prometheus:1.4.1') {
 		exclude group: 'io.micrometer', module: 'micrometer-core'
 	}
-
+	compile group: 'com.codahale.metrics', name: 'metrics-core', version: '3.0.2'
 	compile group: 'io.micrometer', name: 'micrometer-core', version: '1.4.1'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
