@@ -60,12 +60,7 @@ public class InvitationServiceImpl implements InvitationService {
     }
 
     @Override
-    public void deleteInvitationByInvitationId(LocalDate invitationDate, String guestName, UUID invitationId) {
-        invitationRepository.deleteInvitationByInvitationId(invitationDate, guestName, invitationId);
-    }
-
-    @Override
-    public void deleteAllInvitationsForSpecificGuest(LocalDate invitationDate, String guestName) {
+    public void deleteAllInvitationsForSpecificGuest(String invitationDate, String guestName) {
         invitationRepository.deleteAllInvitationsForSpecificGuest(invitationDate, guestName);
     }
 

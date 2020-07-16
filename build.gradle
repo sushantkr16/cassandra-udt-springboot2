@@ -29,7 +29,10 @@ dependencies {
 	implementation ("org.springframework.data:spring-data-cassandra") {
 		exclude group: 'com.datastax.cassandra', module: 'cassandra-driver-core'
 	}
-	compile group: 'com.datastax.dse', name: 'dse-java-driver-core', version: '1.8.1'
+	//compile group: 'com.datastax.dse', name: 'dse-java-driver-core', version: '1.8.1'
+	compile group: 'com.datastax.cassandra', name: 'cassandra-driver-core', version: '3.9.0'
+	compile group: 'com.datastax.cassandra', name: 'cassandra-driver-mapping', version: '3.9.0'
+	compile group: 'com.datastax.cassandra', name: 'cassandra-driver-extras', version: '3.9.0'
 
 	implementation ('io.micrometer:micrometer-registry-prometheus:1.4.1') {
 		exclude group: 'io.micrometer', module: 'micrometer-core'

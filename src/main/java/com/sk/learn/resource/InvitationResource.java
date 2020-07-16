@@ -74,8 +74,8 @@ public class InvitationResource {
     //TODO Fix delete api as its not working
     @DeleteMapping("/{invitationGuestName}")
     public ResponseEntity deleteInvitations(@RequestParam String invitationDate, @PathVariable String invitationGuestName) {
-        LocalDate invitationLocalDate = getLocalDateFromString(invitationDate);
-        invitationService.deleteAllInvitationsForSpecificGuest(invitationLocalDate, invitationGuestName);
+        //LocalDate invitationLocalDate = getLocalDateFromString(invitationDate);
+        invitationService.deleteAllInvitationsForSpecificGuest(invitationDate, invitationGuestName);
         return new ResponseEntity(OK);
     }
 

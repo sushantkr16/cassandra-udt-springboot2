@@ -15,8 +15,7 @@ public interface InvitationService {
 
     InvitationResponse createInvitation(InvitationRequest invitationRequest);
     InvitationResponse updateInvitation(InvitationRequest invitationRequest, String invitationId);
-    void deleteInvitationByInvitationId(java.time.LocalDate invitationDate, String guestName, UUID invitationId);
-    void deleteAllInvitationsForSpecificGuest(java.time.LocalDate invitationDate, String guestName);
+    void deleteAllInvitationsForSpecificGuest(String invitationDate, String guestName);
     List<InvitationResponse> getAllInvitationByDate(LocalDate invitationDate);
     List<InvitationResponse> getAllInvitationsForSpecificGuest(LocalDate invitationDate, String guestName);
     InvitationResponse getInvitationForTheGuest(java.time.LocalDate invitationDate, String guestName, UUID invitationId);

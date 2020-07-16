@@ -43,20 +43,10 @@ public class InvitationRepositoryImpl implements InvitationRepository {
     }
 
     @Override
-    public void deleteInvitationByInvitationId(LocalDate invitationDate, String guestName, UUID  invitationId) {
-        Delete delete = QueryBuilder.delete().from(TBL_INVITATION);
-        delete.where(eq(COL_INVITATION_DATE, invitationDate.toString()));
-        delete.where(eq(COL_INVITATION_TO, guestName));
-        delete.where(eq(COL_INVITATION_ID, invitationId));
-        cassandraOperations.delete(delete);
-    }
-
-    @Override
-    public void deleteAllInvitationsForSpecificGuest(LocalDate invitationDate, String guestName) {
-        String date = getStringFromLocalDate(invitationDate);
+    public void deleteAllInvitationsForSpecificGuest(String invitationDate, String guestName) {
         Delete delete = QueryBuilder.delete()
-                .from("cassandra_udt", TBL_INVITATION)
-                .where(eq(COL_INVITATION_DATE, "2020-07-22"))
+                .from("invitation")
+                .where(eq(COL_INVITATION_DATE, invitationDate))
                 .ifExists();
 
         cassandraOperations.delete(delete);

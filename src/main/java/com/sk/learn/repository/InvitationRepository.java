@@ -10,8 +10,7 @@ public interface InvitationRepository {
 
     Invitation createInvitation(Invitation invitation);
     Invitation updateInvitation(Invitation invitation);
-    void deleteInvitationByInvitationId(LocalDate invitationDate, String guestName, UUID invitationId);
-    void deleteAllInvitationsForSpecificGuest(LocalDate invitationDate, String guestName);
+    void deleteAllInvitationsForSpecificGuest(String invitationDate, String guestName);
     List<Invitation> getAllInvitationByDate(LocalDate invitationDate);
     List<Invitation> getAllInvitationsForSpecificGuest(LocalDate invitationDate, String guestName);
     Invitation getInvitationForTheGuest(LocalDate invitationDate, String guestName, UUID invitationId);
