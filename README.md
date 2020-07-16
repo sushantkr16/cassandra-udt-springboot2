@@ -1,6 +1,7 @@
+## Overview / Getting started : Cassandra user defined data type (UDT) with Spring boot 2
 
   # Table of contents
-  * [Overview / Getting started](#overview--getting-started)
+  * [Cassandra user defined data type (UDT)](#cassandra-user-defined-data-type-udt)
   * [Tools and Technologies](#tools-and-technologies)
   * [Prerequisites](#prerequisites)
   * [Setting up in local](#setting-up-in-local)
@@ -9,10 +10,7 @@
   * [Steps to follow to create an UDT](#steps-to-follow-to-create-an-udt)
   * [Api Reference](#api-reference)
   
-  
-  ## Overview / Getting started
-  
-  #### Cassandra user defined data type (UDT) with Spring boot 2 : 
+  ### Cassandra user defined data type (UDT): 
   
   User-defined types (UDTs) can attach multiple data fields, each named and typed, to a single column. 
   The fields used to create a UDT may be any valid data type, including collections and other existing UDTs. 
@@ -20,8 +18,8 @@
   
   Link : https://docs.datastax.com/en/cql-oss/3.3/cql/cql_using/useCreateUDT.html
    
-   * Spring data cassandra, version should be above than : 1.5.0.RELEASE
-   * Datastax java driver version used for this project : 1.8.1
+   * Spring version : 2.2.6.RELEASE (should be above than : 1.5.0.RELEASE)
+   * Datastax java driver version used for this project : 3.9.0
   
   ### Tools and Technologies 
   
@@ -158,18 +156,27 @@
         @UserDefinedType("address_type")
         @CassandraType(type = DataType.Name.UDT, userTypeName = "address_type")
         CREATE TYPE address_type
-  
+
+9. It will be stored in the table like below. If you see, address has been stored in one column.
+
+       2020-07-26 | ksushant | 3d022412-31db-419e-b329-63bbbc418970 | 
+ 
+       {first_name: 'Test', middle_initial: null, last_name: 'address', street_name: '1314 Marquette Ave', additional_address: 'apt#1208', city: 'MINNEAPOLIS', state: 'MN', zip: '55403', country: 'US', phone: '6124454533'}
+ 
+       | sk | Are you coming to the party? | Birthday
+
+ 
   ### Api Reference
   
     * Http Method : GET
-    * URL : http://localhost:9090/sk/invitation?invitationDate=2020-07-22
+    * URL : http://localhost:9090/sk/invitation?invitationDate=2020-07-26
 
     * Http Method : POST
     * URL : http://localhost:9090/sk/invitation
     * Request Body :
 
         {
-            "invitationDate":"2020-07-22",
+            "invitationDate":"2020-07-26",
             "invitationTo":"ksushant",
             "invitationType":"Birthday",
             "invitationMessage":"Please come to the party",
@@ -192,7 +199,7 @@
     * URL : http://localhost:9090/sk/invitation/{invitationId}
 
         {
-            "invitationDate":"2020-07-22",
+            "invitationDate":"2020-07-26",
             "invitationTo":"ksushant",
             "invitationType":"Birthday",
             "invitationMessage":"Are you coming to the party?",
