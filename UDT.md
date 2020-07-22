@@ -1,4 +1,4 @@
-#User-defined types (UDTs)
+##User-defined types (UDTs)
 
 Cassandra being a NO-SQL database, de-normalization and duplication of data is
 allowed and considered as normal. Cassandra supports many pre-defined data types 
